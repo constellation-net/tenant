@@ -79,14 +79,6 @@ The decryption keys for [SealedSecrets](https://github.com/bitnami-labs/sealed-s
 
 A [Traefik](https://traefik.io) server runs on the cluster and will handle all ingress to the cluster. Routes for your Services can be added by using the [IngressRoute](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-ingressroute) and co manifests.
 
-### Dashboard
-
-TODO
-
-### Prometheus
-
-TODO
-
 ## Restrictions
 
 Due to the inherent risk, tenant repositories are restricted in what they can do. The primary restrictions in place are:
