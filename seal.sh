@@ -1,5 +1,5 @@
 SECRETS=$(find . -name "secret*.yaml")
-REPO=basename -s .git `git config --get remote.origin.url`
+REPO=$(basename -s .git `git config --get remote.origin.url`)
 
 for f in $SECRETS; do 
     echo "Sealing $f"
