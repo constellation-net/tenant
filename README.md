@@ -8,7 +8,11 @@ First of all, it's worth you familiarising yourself with [FluxCD](https://fluxcd
 
 To tell Flux to reconcile a collection of manifests for you, you need to create a [Kustomization](https://fluxcd.io/flux/components/kustomize/kustomizations) in the `kustomizations/` directory. From here, you can structure the rest of the repository however you want. This template repository contains an example to show you how you could do this.
 
-NOTE: thanks to Flux, you do not need to specify `metadata.namespace` on any of the manifests here. Flux will automatically add it on-the-fly to all namespaced resources.
+**NOTE**: thanks to Flux, you do not need to specify `metadata.namespace` on any of the manifests here. Flux will automatically add it on-the-fly to all namespaced resources.
+
+### Updating ConfigMaps & Secrets
+
+One major flaw of Flux is that it does not restart Pods when a commit only changes a [ConfigMap](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/) or [Secret](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/secret-v1/). To remedy this, [Reloader](https://github.com/stakater/Reloader) is installed on the cluster, and will trigger a restart when a Pod's related [ConfigMaps](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/config-map-v1/) or [Secrets](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/secret-v1/) are modified.
 
 ## Constellation's Resources
 
